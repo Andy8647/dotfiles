@@ -1,0 +1,26 @@
+font-family = Maple Mono NF CN
+font-size = 14
+
+theme = Catppuccin Mocha
+
+window-padding-x = 8
+window-padding-y = 4
+
+window-decoration = auto
+macos-titlebar-style = tabs
+
+copy-on-select = false
+scrollbar = never
+
+background-opacity = 0.85
+background-blur-radius = 30
+
+command = /opt/homebrew/bin/fish
+
+confirm-close-surface = false
+
+cursor-style = bar
+cursor-style-blink = true
+mouse-hide-while-typing = true
+window-save-state = always
+quick-terminal-position = center

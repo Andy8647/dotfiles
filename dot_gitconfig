@@ -1,0 +1,37 @@
+[user]
+	name = Andy8647
+	email = andy8647lgc@gmail.com
+[safe]
+	directory = *
+[core]
+	editor = nvim
+	pager = delta
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
+[diff]
+	algorithm = histogram
+	colorMoved = default
+[merge]
+	conflictstyle = zdiff3
+[rerere]
+	enabled = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+	syntax-theme = Catppuccin Mocha
+[alias]
+	lg = log --graph --oneline --decorate --all
+	st = status -sb
+	sw = switch
+	unstage = reset HEAD --

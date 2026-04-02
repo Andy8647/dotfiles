@@ -1,0 +1,7 @@
+--smart-case
+--hidden
+--glob=!.git
+--glob=!node_modules
+--glob=!.venv
+--colors=match:fg:red
+--colors=match:style:bold
