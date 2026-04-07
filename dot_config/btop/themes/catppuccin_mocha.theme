@@ -1,0 +1,61 @@
+# Catppuccin Mocha theme for btop
+# https://github.com/catppuccin/btop
+
+# Main bg and fg
+theme[main_bg]="#1e1e2e"
+theme[main_fg]="#cdd6f4"
+
+# Title color
+theme[title]="#cdd6f4"
+
+# Highlight color
+theme[hi_fg]="#89b4fa"
+
+# Selected element
+theme[selected_bg]="#45475a"
+theme[selected_fg]="#cdd6f4"
+
+# Inactive/disabled text
+theme[inactive_fg]="#6c7086"
+
+# Color of the graph text
+theme[graph_text]="#a6adc8"
+
+# Meter gradient (green → yellow → red in Catppuccin)
+theme[meter_bg]="#45475a"
+theme[process_misc]="#f9e2af"
+
+# CPU graph colors
+theme[cpu_box]="#89b4fa"
+theme[mem_box]="#a6e3a1"
+theme[net_box]="#cba6f7"
+theme[proc_box]="#f38ba8"
+
+# Process tree
+theme[proc_misc]="#f9e2af"
+
+# Download/Upload colors
+theme[download]="#89b4fa"
+theme[upload]="#a6e3a1"
+
+# Temperature
+theme[temp_start]="#a6e3a1"
+theme[temp_mid]="#f9e2af"
+theme[temp_end]="#f38ba8"
+
+# Free/cached/available colors
+theme[free_start]="#a6e3a1"
+theme[free_mid]="#94e2d5"
+theme[free_end]="#89dceb"
+
+theme[cached_start]="#f9e2af"
+theme[cached_mid]="#fab387"
+theme[cached_end]="#f38ba8"
+
+theme[available_start]="#a6e3a1"
+theme[available_mid]="#f9e2af"
+theme[available_end]="#f38ba8"
+
+theme[used_start]="#a6e3a1"
+theme[used_mid]="#f9e2af"
+theme[used_end]="#f38ba8"
