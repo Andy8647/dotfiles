@@ -24,3 +24,6 @@ cursor-style-blink = true
 mouse-hide-while-typing = true
 window-save-state = always
 quick-terminal-position = center
+
+keybind = super+shift+bracket_left=previous_tab
+keybind = super+shift+bracket_right=next_tab

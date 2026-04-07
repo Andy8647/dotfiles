@@ -1,47 +1,64 @@
 -- ~/.config/nvim/lua/plugins/colorscheme.lua
 return {
   {
-    "navarasu/onedark.nvim",
-    lazy = false, -- 启动即加载（避免还没加载就被 require）
-    priority = 1000, -- 提前于其他插件
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = false,
+    priority = 1000,
     opts = {
-      -- 你的需求：cool + 透明
-      style = "cool",
-      transparent = true,
+      flavour = "mocha",
+      transparent_background = true,
       term_colors = true,
-      ending_tildes = false,
-      cmp_itemkind_reverse = false,
 
-      code_style = {
-        comments = "italic",
-        keywords = "none",
-        functions = "none",
-        strings = "none",
-        variables = "none",
+      styles = {
+        comments = { "italic" },
+        conditionals = {},
+        loops = {},
+        functions = {},
+        keywords = {},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = {},
+        operators = {},
       },
 
-      lualine = { transparent = true },
-
-      -- 让各处也“看起来透明”
-      highlights = {
-        Normal = { bg = "none" },
-        NormalNC = { bg = "none" },
-        NormalFloat = { bg = "none" },
-        FloatBorder = { bg = "none" },
-        SignColumn = { bg = "none" },
-        StatusLine = { bg = "none" },
-        StatusLineNC = { bg = "none" },
+      integrations = {
+        cmp = true,
+        gitsigns = true,
+        treesitter = true,
+        mason = true,
+        mini = { enabled = true },
+        native_lsp = {
+          enabled = true,
+          underlines = {
+            errors = { "undercurl" },
+            hints = { "undercurl" },
+            warnings = { "undercurl" },
+            information = { "undercurl" },
+          },
+        },
+        telescope = { enabled = true },
+        which_key = true,
+        indent_blankline = { enabled = true },
+        notify = true,
+        noice = true,
       },
 
-      diagnostics = {
-        darker = true,
-        undercurl = true,
-        background = false,
-      },
+      custom_highlights = function()
+        return {
+          NormalFloat = { bg = "none" },
+          FloatBorder = { bg = "none" },
+          StatusLine = { bg = "none" },
+          StatusLineNC = { bg = "none" },
+        }
+      end,
     },
     config = function(_, opts)
-      require("onedark").setup(opts)
-      require("onedark").load() -- 或者 vim.cmd.colorscheme("onedark")
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
 }

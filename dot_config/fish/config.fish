@@ -27,9 +27,6 @@ status is-interactive; and pyenv init - fish | source
 # ---- Antigravity ----
 fish_add_path /Users/andy/.antigravity/antigravity/bin
 
-# ---- OpenClaw Completion ----
-source /Users/andy/.openclaw/completions/openclaw.fish
-
 # ---- Bun ----
 set -gx BUN_INSTALL "$HOME/.bun"
 fish_add_path $BUN_INSTALL/bin
@@ -37,10 +34,16 @@ fish_add_path $BUN_INSTALL/bin
 # ---- Ripgrep ----
 set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/config
 
-# ---- fzf ----
+# ---- fzf (Catppuccin Mocha) ----
 set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git"
 set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set -gx FZF_ALT_C_COMMAND "fd --type d --hidden --exclude .git"
+set -gx FZF_DEFAULT_OPTS "\
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--color=border:#313244,label:#cdd6f4"
 fzf --fish | source
 
 # ---- Aliases ----
@@ -60,6 +63,7 @@ abbr -a gl "git pull"
 abbr -a gd "git diff"
 abbr -a gc "git commit"
 abbr -a y yazi
+abbr -a xcp "sh '$HOME/Library/Application Support/Steam/steamapps/common/Balatro/run_lovely_macos.sh'"
 
 # ---- zoxide (smart cd) ----
 zoxide init fish | source
