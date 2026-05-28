@@ -13,6 +13,7 @@ set -gx EDITOR nvim
 
 # ---- iCloud Drive ----
 set -gx icd "$HOME/Library/Mobile Documents/com~apple~CloudDocs"
+set -gx vault "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault"
 
 # ---- Perl local::lib ----
 set -gx PERL5LIB "$HOME/perl5/lib/perl5"
@@ -55,6 +56,7 @@ alias cat="bat"
 
 # ---- Abbreviations ----
 abbr -a lg lazygit
+abbr -a lsql lazysql
 abbr -a v nvim
 abbr -a g git
 abbr -a gs "git status -sb"
