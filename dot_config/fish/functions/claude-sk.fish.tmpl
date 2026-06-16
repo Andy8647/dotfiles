@@ -2,8 +2,8 @@ function claude-sk --wraps=claude --description 'claude-sk: Claude Code via Deep
     env \
         ANTHROPIC_BASE_URL="http://127.0.0.1:8787" \
         ENABLE_TOOL_SEARCH=true \
-        ANTHROPIC_API_KEY="REDACTED-DEEPSEEK-KEY" \
-        ANTHROPIC_AUTH_TOKEN="REDACTED-DEEPSEEK-KEY" \
+        ANTHROPIC_API_KEY="{{ .deepseekApiKey }}" \
+        ANTHROPIC_AUTH_TOKEN="{{ .deepseekApiKey }}" \
         ANTHROPIC_MODEL="deepseek-v4-pro[1m]" \
         ANTHROPIC_DEFAULT_OPUS_MODEL="deepseek-v4-pro[1m]" \
         ANTHROPIC_DEFAULT_SONNET_MODEL="deepseek-v4-pro[1m]" \
