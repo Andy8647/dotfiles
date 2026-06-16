@@ -1,0 +1,22 @@
+{
+  "lineLayout": "compact",
+  "showSeparators": false,
+  "pathLevels": 2,
+  "display": {
+    "showModel": true,
+    "showConfigCounts": true,
+    "showDuration": true,
+    "showSpeed": true,
+    "showSessionName": false,
+    "sevenDayThreshold": 101,
+    "showTools": false,
+    "showAgents": true,
+    "showTodos": true
+  },
+  "gitStatus": {
+    "enabled": true,
+    "showDirty": true,
+    "showAheadBehind": true,
+    "showFileStats": true
+  }
+}
