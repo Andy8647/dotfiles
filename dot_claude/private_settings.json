@@ -1,0 +1,125 @@
+{
+  "env": {},
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(which:*)",
+      "Bash(type:*)",
+      "Bash(echo:*)",
+      "Bash(printf:*)",
+      "Bash(env:*)",
+      "Bash(printenv:*)",
+      "Bash(uname:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote:*)",
+      "Bash(git show:*)",
+      "Bash(git config --get:*)",
+      "Bash(git config --global -l:*)",
+      "Bash(git config --global --get:*)",
+      "Bash(brew list:*)",
+      "Bash(brew ls:*)",
+      "Bash(brew info:*)",
+      "Bash(brew search:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh api:*)",
+      "Bash(chezmoi managed:*)",
+      "Bash(chezmoi diff:*)",
+      "Bash(chezmoi source-path:*)",
+      "Bash(chezmoi git:*)",
+      "Bash(chezmoi data:*)",
+      "Bash(fish -c:*)",
+      "Bash(bat:*)",
+      "Bash(fd:*)",
+      "Bash(rg:*)",
+      "Bash(eza:*)",
+      "Bash(dust:*)",
+      "Bash(tokei:*)",
+      "Bash(procs:*)",
+      "Bash(glow:*)",
+      "Bash(delta:*)",
+      "Bash(jq:*)",
+      "Bash(fastfetch:*)",
+      "Bash(ya --help:*)",
+      "Bash(ya pkg list:*)",
+      "Bash(claude --version:*)",
+      "Bash(node --version:*)",
+      "Bash(python3 --version:*)",
+      "Bash(npm list:*)",
+      "Bash(pip3 list:*)",
+      "Bash(npm view:*)",
+      "Bash(npm root:*)",
+      "WebSearch",
+      "WebFetch(domain:*)"
+    ]
+  },
+  "model": "opus",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "/Users/andy/.config/claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "clangd-lsp@claude-plugins-official": true,
+    "claude-hud@claude-hud": true,
+    "permafrost@permafrost": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-hud": {
+      "source": {
+        "source": "github",
+        "repo": "jarrodwatts/claude-hud"
+      }
+    },
+    "superpowers-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers-marketplace"
+      }
+    },
+    "anthropic-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/skills"
+      }
+    },
+    "permafrost": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/andy/Projects/permafrost"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark-ansi",
+  "skipAutoPermissionPrompt": true,
+  "agentPushNotifEnabled": true
+}
