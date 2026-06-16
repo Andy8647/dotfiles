@@ -1,0 +1,3 @@
+# LazyVim rewrites this on every plugin update → constant chezmoi conflicts.
+# Each machine manages its own plugin lockfile.
+.config/nvim/lazy-lock.json
