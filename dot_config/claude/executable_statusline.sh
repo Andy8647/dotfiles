@@ -10,7 +10,20 @@ INPUT=$(cat)
 
 # Native claude / non-deepseek -> claude-hud
 if ! printf '%s' "$INPUT" | grep -qi deepseek; then
-    printf '%s' "$INPUT" | bash -c 'plugin_dir=$(ls -d "$HOME"/.claude/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | awk -F/ '\''{ print $(NF-1) "\t" $0 }'\'' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1 | cut -f2-); exec "/opt/homebrew/bin/node" "${plugin_dir}dist/index.js"'
+    # Resolve node regardless of how it was installed (PATH first, then common
+    # locations — brew, nodejs.org installer, nvm, volta, system). The statusline
+    # may run with a minimal PATH, hence the absolute-path fallbacks.
+    node_bin=$(command -v node 2>/dev/null || true)
+    if [[ -z "$node_bin" ]]; then
+        for c in /opt/homebrew/bin/node /usr/local/bin/node "$HOME/.volta/bin/node" "$HOME"/.nvm/versions/node/*/bin/node /usr/bin/node; do
+            [[ -x "$c" ]] && { node_bin="$c"; break; }
+        done
+    fi
+    plugin_dir=$(ls -d "$HOME"/.claude/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | awk -F/ '{ print $(NF-1) "\t" $0 }' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1 | cut -f2-)
+    if [[ -n "$node_bin" && -n "$plugin_dir" ]]; then
+        exec "$node_bin" "${plugin_dir}dist/index.js" <<<"$INPUT"
+    fi
+    # node or plugin not found -> render nothing rather than erroring
     exit 0
 fi
 
