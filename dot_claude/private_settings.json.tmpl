@@ -83,7 +83,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "/Users/andy/.config/claude/statusline.sh"
+    "command": "{{ .chezmoi.homeDir }}/.config/claude/statusline.sh"
   },
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true,
@@ -112,7 +112,7 @@
     "permafrost": {
       "source": {
         "source": "directory",
-        "path": "/Users/andy/Projects/permafrost"
+        "path": "{{ .chezmoi.homeDir }}/Projects/permafrost"
       }
     }
   },
