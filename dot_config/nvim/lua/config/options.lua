@@ -2,6 +2,11 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 --
+
+-- 用绝对行号代替 LazyVim 默认的相对行号
+vim.opt.number = true
+vim.opt.relativenumber = false
+
 -- -- 隐藏所有竖向分隔线：让它们的 fg = Normal 的 bg
 local function hide_separators()
   local ok, normal = pcall(vim.api.nvim_get_hl, 0, { name = "Normal", link = false })
