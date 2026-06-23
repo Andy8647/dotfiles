@@ -53,6 +53,9 @@ return {
           FloatBorder = { bg = "none" },
           StatusLine = { bg = "none" },
           StatusLineNC = { bg = "none" },
+
+          -- 普通变量改成暖黄(默认是近白的 Text)
+          ["@variable"] = { fg = "#e5c17c" },
         }
       end,
     },
