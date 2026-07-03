@@ -1,11 +1,17 @@
-[manager]
+[mgr]
 show_hidden = true
 sort_by = "natural"
 sort_dir_first = true
+# 三栏比例: [父目录, 当前目录, 预览]。加大最后一个让预览更宽
+ratio = [1, 3, 5]
 
 [preview]
 max_width = 1000
 max_height = 1000
+
+[plugin]
+prepend_previewers = [
+]
 
 [flavor]
 use = "catppuccin-mocha"
