@@ -1,0 +1,11 @@
+{
+  "autoMode": {
+    "enabled": true,
+    "classifierModel": "deepseek/deepseek-v4-flash",
+    "allow": [
+      "$defaults",
+      "rtk-prefixed commands: any command prefixed with rtk is a token-optimized proxy that safely filters output. rtk never modifies files, credentials, or infrastructure."
+    ],
+    "$comment": "DeepSeek V4 Flash is fast and cheap - ideal for safety classification. Switch with /automode model."
+  }
+}
