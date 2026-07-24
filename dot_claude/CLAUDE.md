@@ -40,36 +40,49 @@
 
 ## uv tool CLIs(已安装的社交/发布/工具链 CLI)
 
-| 命令 | 工具 | 用途 |
-|---|---|---|
-| `xhs` | xiaohongshu-cli | 小红书发布 / 浏览 / 互动(配合 `xhs-post` skill 更佳) |
-| `twitter` | twitter-cli | X / Twitter 发布 / 浏览;支持 `-c` 紧凑输出,LLM 友好 |
-| `specify` | specify-cli | GitHub Spec Kit,spec-driven development 项目模板 |
+| 命令      | 工具            | 用途                                                 |
+| --------- | --------------- | ---------------------------------------------------- |
+| `xhs`     | xiaohongshu-cli | 小红书发布 / 浏览 / 互动(配合 `xhs-post` skill 更佳) |
+| `twitter` | twitter-cli     | X / Twitter 发布 / 浏览;支持 `-c` 紧凑输出,LLM 友好  |
+| `specify` | specify-cli     | GitHub Spec Kit,spec-driven development 项目模板     |
 
 具体命令见 `~/cli-cheatsheet.md`(按需 Read)。
 
 ## 包管理优先级
 
-| 场景 | 用什么 |
-|---|---|
+| 场景                | 用什么                                               |
+| ------------------- | ---------------------------------------------------- |
 | macOS 软件(CLI/GUI) | **Homebrew**(`brew install` / `brew install --cask`) |
-| Python 项目依赖 | **uv** |
-| Python CLI 工具 | **uv tool** |
-| Node 项目 | **pnpm** 优先,除非项目强制 npm |
-| dotfile 同步 | **chezmoi** — 改 `~/.config/` 下文件后提醒我同步 |
+| Python 项目依赖     | **uv**                                               |
+| Python CLI 工具     | **uv tool**                                          |
+| Node 项目           | **pnpm** 优先,除非项目强制 npm                       |
+| dotfile 同步        | **chezmoi** — 改 `~/.config/` 下文件后提醒我同步     |
+
+## ~/Projects 目录组织(重要:决定索引/搜索范围)
+
+顶层是**「状态/类型分桶」+「活跃项目直放根目录」**的混合。看到某个 repo 在哪个桶,就知道它的状态。
+
+| 位置 | 含义 |
+| --- | --- |
+| `~/Projects/<repo>`(根目录直放) | **当前活跃、正经在做**的项目(如 `permafrost` `commonsku-copilot` `CarbCyclingWeb` `self-host-proxy`) |
+| `.archive/`(dot 前缀,从 `ls` 隐藏) | **已完成/归档/死项目**(课程作业、旧实验),~28 个 |
+| `paused/` | **暂停搁置**的项目 |
+| `ideas/` | **早期想法,未认真启动** |
+| `fork/` | **fork 的第三方 repo**;改上游时把「上游 + 自己的扩展」嵌套并排(如 `fork/pi/` = 上游 `pi/` + 我的 `pi-*` 扩展) |
+| `Andy8647/` | GitHub profile repo(同名特殊仓库) |
+| `DataGrip/` | 非代码,JetBrains DataGrip 工作区(只有 `.idea`) |
+
+**惯例**:dot 前缀 = 组织桶(`.archive` `.claude`);状态分桶 完成→`.archive`、搁置→`paused`、早期→`ideas`;活跃项目**直接摆根目录不套桶**;monorepo 用 `apps/ server/ ui/ infra/ scripts/ docs/`。
+
+**默认索引/搜索范围**:代码分析、批量索引(如 jcodemunch)、跨 repo 搜索时,**默认只聚焦活跃项目**(`~/Projects` 根目录直放的 repo + `fork/pi/` 里我在改的),**跳过** `.archive/` `paused/` `ideas/` `node_modules/` `DataGrip/`。要碰归档/暂停/依赖里的东西,先跟我确认。
 
 ## Obsidian Vault (iCloud)
 
-| Vault | 路径 | 用途 |
-|---|---|---|
+| Vault        | 路径                                                                        | 用途                                                                                                                                                                       |
+| ------------ | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Vault** ⭐ | `$vault`(= `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault`) | 统一 vault:`UNSW/`(LLM-compiled 学校知识库,Karpathy 风格)+ `Ideas/` + `Projects/` + `Bridge/`。编译范围严格限制在 `Vault/UNSW/`,见 vault 内 `CLAUDE.md` 的 Compile Scope。 |
 
 旧的 MyVault 已并入 Vault(归档为 `Obsidian/MyVault.OLD-to-remove-after-verify`,验证 OK 后可删)。
-
-## Personal OS
-
-`~/Projects/me/` — 手动维护的深度个人档案(履历、价值观、复盘、反复踩的坑)。
-**不要**在其他项目中主动加载或引用其内容;只在用户 `cd ~/Projects/me` 时才生效。
 
 ## 沟通风格
 
@@ -78,15 +91,6 @@
 - 我问"怎么做 X"时:先给**一条**推荐方案 + 主要权衡,必要时再给备选,不要一上来罗列五种
 - 纠正错误要直接,不要包装成"你说得对,但是……"
 - 我喜欢在回答里看到**你的判断**,不要只做选项搬运工
-
-## 保护性规则(破坏性操作)
-
-未经我明示同意,**不要**执行:
-- `rm -rf`、`git push --force`、`git reset --hard`
-- `brew uninstall` / `pip uninstall` 任何包
-- `pyenv uninstall`、删除 `.venv` 或 `node_modules`
-- 修改 `~/.zshrc` / `~/.config/fish/config.fish` / `~/.ssh/` / `~/.gnupg/`
-- 关闭、重启、登出系统
 
 执行前给出清单或 diff 预览,我确认后再动手。
 

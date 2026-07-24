@@ -1,11 +1,9 @@
-{{- $kimiApiKey := promptStringOnce . "kimiApiKey" "Kimi API key" -}}
-{{- $deepseekApiKey := promptStringOnce . "deepseekApiKey" "DeepSeek API key" -}}
 {
   "providers": {
     "kimi-coding": {
       "baseUrl": "https://api.kimi.com/coding",
       "api": "anthropic-messages",
-      "apiKey": {{ $kimiApiKey | quote }},
+      "apiKey": "$KIMI_API_KEY",
       "models": [
         {
           "id": "k3",
@@ -26,7 +24,7 @@
     "deepseek": {
       "baseUrl": "https://api.deepseek.com",
       "api": "openai-completions",
-      "apiKey": {{ $deepseekApiKey | quote }},
+      "apiKey": "$DEEPSEEK_API_KEY",
       "models": [
         {
           "id": "deepseek-v4-pro",

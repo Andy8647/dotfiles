@@ -1,7 +1,4 @@
-{{- $deepseekApiKey := promptStringOnce . "deepseekApiKey" "DeepSeek API key (permafrost claude-sk)" -}}
-
 [data]
-    deepseekApiKey = {{ $deepseekApiKey | quote }}
 
 [git]
     autoCommit = true
