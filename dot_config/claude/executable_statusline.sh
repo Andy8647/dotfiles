@@ -1,19 +1,8 @@
 #!/usr/bin/env bash
-# Hybrid statusline — everything renders through coralline (~/.claude/coralline/):
-#   - DeepSeek sessions (claude-sk) -> coralline-sk.conf  (permafrost cache pills)
-#   - everything else (native claude) -> coralline.conf
-# Branch on the session model, NOT on proxy reachability (the permafrost proxy
-# stays up in the background, so reachability can't tell the two session types
-# apart). The proxy itself is unaffected by this file — this only picks which
-# coralline config renders the readout.
+# Statusline — renders through coralline (~/.claude/coralline/) using ~/.claude/coralline.conf.
+# (The old DeepSeek/claude-sk branch + coralline-sk.conf were removed 2026-07-25 when
+#  permafrost was decommissioned.)
 set -euo pipefail
 
 INPUT=$(cat)
-
-if printf '%s' "$INPUT" | grep -qi deepseek; then
-    CONF="$HOME/.claude/coralline-sk.conf"
-else
-    CONF="$HOME/.claude/coralline.conf"
-fi
-
-printf '%s' "$INPUT" | CORALLINE_CONFIG="$CONF" bash "$HOME/.claude/coralline/statusline.sh"
+printf '%s' "$INPUT" | CORALLINE_CONFIG="$HOME/.claude/coralline.conf" bash "$HOME/.claude/coralline/statusline.sh"
