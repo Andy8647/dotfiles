@@ -65,7 +65,8 @@
       "Bash(npm root:*)",
       "WebSearch",
       "WebFetch(domain:*)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "model": "opus",
   "hooks": {
@@ -88,7 +89,7 @@
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true,
     "claude-hud@claude-hud": true,
-    "permafrost@permafrost": true
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-hud": {
@@ -108,18 +109,12 @@
         "source": "github",
         "repo": "anthropics/skills"
       }
-    },
-    "permafrost": {
-      "source": {
-        "source": "directory",
-        "path": "{{ .chezmoi.homeDir }}/Projects/permafrost"
-      }
     }
   },
-  "effortLevel": "high",
+  "effortLevel": "medium",
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
-  "theme": "dark-ansi",
-  "skipAutoPermissionPrompt": true,
-  "agentPushNotifEnabled": true
+  "theme": "dark-daltonized",
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
 }

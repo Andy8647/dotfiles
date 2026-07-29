@@ -1,47 +1,110 @@
 {
   "theme": "catppuccin-mocha",
-  "defaultProvider": "deepseek",
-  "defaultModel": "deepseek-v4-pro",
-  "defaultThinkingLevel": "xhigh",
+  "defaultProvider": "kimi-coding",
+  "defaultModel": "k3-256k",
+  "defaultThinkingLevel": "high",
+  "enabledModels": [
+    "deepseek/*",
+    "kimi-coding/*",
+    "kimi-platform/*"
+  ],
   "shellPath": "{{ if eq .chezmoi.os "darwin" }}/opt/homebrew/bin/fish{{ else if eq .chezmoi.os "linux" }}/usr/bin/fish{{ else }}/usr/bin/env fish{{ end }}",
+  "subagents": {
+    "artifactDir": "session"
+  },
   "packages": [
-    "git:github.com/Andy8647/pi-powerline-footer",
+    "/Users/andy/Projects/fork/pi/pi-starline",
     "git:github.com/Andy8647/pi-balance",
-    "git:github.com/Andy8647/pi-toolbox",
+    "git:github.com/Andy8647/pi-agent-loop",
     "npm:pi-mcp-adapter",
     "npm:pi-brain",
     "npm:pi-notify",
     "npm:@czottmann/pi-automode",
     "npm:@alexanderfortin/pi-tavily-tools",
-    "npm:@getpipher/vision",
-    "npm:pi-auto-router",
     "npm:@rohaquinlop/pi-deepseek-cache",
-    "npm:remote-pi"
+    "npm:pi-subagents",
+    "npm:@andy8647/pi-toolbox"
   ],
   "powerline": {
     "preset": "default",
     "separator": "powerline",
     "segmentStyle": "pill",
+    "copyOnSelect": false,
     "layout": {
-      "left": ["model", "thinking", "path", "git"],
-      "right": ["custom:balance", "custom:automode", "custom:mcp", "custom:tavily", "cache_read", "context_pct"],
+      "left": [
+        "model",
+        "thinking",
+        "path",
+        "git"
+      ],
+      "right": [
+        "custom:balance",
+        "custom:automode",
+        "custom:mcp",
+        "custom:tavily",
+        "cache_read",
+        "context_pct"
+      ],
       "secondary": []
     },
     "segmentOptions": {
-      "path": { "mode": "basename" }
+      "path": {
+        "mode": "basename"
+      }
     },
     "customItems": [
-      { "id": "automode", "statusKey": "pi-automode", "position": "right", "color": "#cba6f7", "hideWhenMissing": false },
-      { "id": "mcp", "statusKey": "mcp-status", "position": "right", "color": "#89b4fa", "hideWhenMissing": true },
-      { "id": "tavily", "statusKey": "tavily-usage", "position": "right", "color": "#a6e3a1", "hideWhenMissing": true },
-      { "id": "balance", "statusKey": "provider-balance", "position": "right", "color": "#f9e2af", "excludeFromExtensionStatuses": true, "hideWhenMissing": true }
+      {
+        "id": "automode",
+        "statusKey": "pi-automode",
+        "position": "right",
+        "color": "#cba6f7",
+        "hideWhenMissing": false
+      },
+      {
+        "id": "mcp",
+        "statusKey": "mcp-status",
+        "position": "right",
+        "color": "#89b4fa",
+        "hideWhenMissing": true
+      },
+      {
+        "id": "tavily",
+        "statusKey": "tavily-usage",
+        "position": "right",
+        "color": "#a6e3a1",
+        "hideWhenMissing": true
+      },
+      {
+        "id": "balance",
+        "statusKey": "provider-balance",
+        "position": "right",
+        "color": "#f9e2af",
+        "excludeFromExtensionStatuses": true,
+        "hideWhenMissing": true
+      }
     ],
-    "disabledSegments": ["extension_statuses"]
+    "disabledSegments": [
+      "extension_statuses"
+    ],
+    "context": {
+      "format": "percent"
+    },
+    "cache_read": {
+      "format": "percent"
+    },
+    "editorCursor": "terminal",
+    "pasteCollapseLines": 3,
+    "fixedEditor": true
   },
   "showLastPrompt": false,
   "hideThinkingBlock": true,
   "toolbox": {
     "highlightBash": true,
     "enabled": true
-  }
+  },
+  "lastChangelogVersion": "0.82.1",
+  "terminal": {
+    "showTerminalProgress": false
+  },
+  "showHardwareCursor": true
 }

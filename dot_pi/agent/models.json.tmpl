@@ -1,5 +1,23 @@
 {
   "providers": {
+    "kimi-platform": {
+      "baseUrl": "https://api.moonshot.cn/v1",
+      "api": "openai-completions",
+      "apiKey": "$KIMIP_API_KEY",
+      "compat": {
+        "deferredToolsMode": "kimi"
+      },
+      "models": [
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3 (平台)",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "input": ["text", "image"],
+          "reasoning": true
+        }
+      ]
+    },
     "kimi-coding": {
       "baseUrl": "https://api.kimi.com/coding",
       "api": "anthropic-messages",
