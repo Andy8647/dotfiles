@@ -5,4 +5,28 @@
 -- with `vim.api.nvim_create_autocmd`
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
--- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- 禁用 LazyVim 的默认 spell（中文不需要拼写检查）
+vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- 重建 spell/wrap，排除 markdown
+local function augroup(name)
+  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+end
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("wrap_spell"),
+  pattern = { "text", "plaintex", "typst", "gitcommit" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
+
+-- markdown 只折行，不拼写检查
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("wrap_nospell"),
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.wrap = true
+  end,
+})

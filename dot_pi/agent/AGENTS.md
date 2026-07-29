@@ -22,6 +22,8 @@
 - 把多步命令拆成多次 bash tool 调用比强行写长链更安全
 - **不要被 `$SHELL=fish` 误导** —— bash tool 跑的是 `/bin/bash`,与登录 shell 无关
 
+**给用户的终端命令用 fish 语法**（用户的登录 shell 是 fish，复制粘贴到终端里跑的是 fish）
+
 ## Environment
 
 - **OS**: macOS (Darwin, Apple Silicon)
@@ -61,6 +63,24 @@
 | `twitter` | twitter-cli     | X / Twitter 发布 / 浏览;支持 `-c` 紧凑输出,LLM 友好 |
 
 > 完整 CLI 速查表在 `~/cli-cheatsheet.md`,按需 Read,不要一次性加载进 context。
+
+## Office 文档处理 (officecli)
+
+`officecli` — AI-friendly CLI for `.docx` / `.xlsx` / `.pptx`,支持增删改查、批量操作、模板合并。
+
+| 命令 | 用途 |
+|------|------|
+| `officecli open/close <file>` | 打开(驻留内存) / 关闭 |
+| `officecli get <file> <path>` | 按路径读取节点 |
+| `officecli set <file> <path> --prop k=v` | 修改节点属性 |
+| `officecli add <file> <parent> --type <el>` | 添加元素 |
+| `officecli remove <file> <path>` | 删除元素 |
+| `officecli query <file> <selector>` | CSS-like 选择器查询 |
+| `officecli batch <file> --commands <json>` | JSON 批量操作 |
+| `officecli merge <tmpl> <out> --data <json>` | 模板合并 |
+| `officecli create <file>` | 创建空白文档 |
+
+所有命令加 `--json` 输出 AI 友好格式。schema 参考: `officecli help docx/xlsx/pptx`。
 
 ## 浏览器自动化 (chrome-devtools MCP)
 

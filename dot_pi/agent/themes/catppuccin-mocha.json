@@ -30,9 +30,9 @@
     "customMsgBg": "#2a2838"
   },
   "colors": {
-    "accent": "mauve",
+    "accent": "sky",
     "border": "surface2",
-    "borderAccent": "mauve",
+    "borderAccent": "sky",
     "borderMuted": "surface1",
     "success": "green",
     "error": "red",
