@@ -1,0 +1,66 @@
+{
+  "version": 3,
+  "lines": [
+    [
+      {
+        "id": "24d024f7-a5d8-43f0-bfc1-2636003002e6",
+        "type": "model",
+        "backgroundColor": "bgBrightGreen"
+      },
+      {
+        "id": "4953080c-f8e7-4c33-b836-1a6b9842d9ad",
+        "type": "tokens-total",
+        "backgroundColor": "bgBrightYellow"
+      },
+      {
+        "id": "625f285a-112d-4c3c-b473-f07e80450c6e",
+        "type": "context-percentage-usable",
+        "backgroundColor": "bgYellow"
+      },
+      {
+        "id": "800bf664-8516-499b-8d9d-4c6d780f7c47",
+        "type": "reset-timer",
+        "backgroundColor": "bgBrightRed"
+      }
+    ],
+    [],
+    []
+  ],
+  "flexMode": "full-minus-40",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "defaultPadding": " ",
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "powerline": {
+    "enabled": true,
+    "separators": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "separatorInvertBackground": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [
+      ""
+    ],
+    "theme": "onedark",
+    "autoAlign": false
+  }
+}

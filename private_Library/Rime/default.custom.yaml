@@ -1,0 +1,18 @@
+# 方案 A：禁用 Rime 内部中英文切换
+# 所有切换交给 macOS 系统级 Caps Lock
+
+patch:
+  # 只保留雾凇拼音
+  schema_list:
+    - schema: rime_ice
+
+  # 候选词数量（调小避免横向 linear 模式超宽折行）
+  menu/page_size: 6
+
+  # 核心：Rime 收到 Caps Lock / Shift 什么都不做
+  # good_old_caps_lock: true 表示 Caps Lock 仍可锁大写
+  ascii_composer/good_old_caps_lock: true
+  ascii_composer/switch_key:
+    Caps_Lock: noop
+    Shift_L: noop
+    Control_L: noop

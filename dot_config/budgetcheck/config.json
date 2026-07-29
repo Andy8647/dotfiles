@@ -1,0 +1,25 @@
+{
+  "_comment": "budgetcheck 配置。改完直接保存即可。金额单位与你输入的余额一致。",
+  "lunch_base": 16,
+  "lunch_weekend": 30,
+  "weekend_lunch_weekday": "Sunday",
+  "egg_price": 12.7,
+  "egg_cycle_days": 9,
+  "milk_price": 10.5,
+  "milk_cycle_days": 9,
+  "gym_price": 16.95,
+  "gym_weekday": "Friday",
+  "laundry_price": 11,
+  "laundry_weekday": "Sunday",
+  "claude_price_each": 31.25,
+  "claude_billing_days": [
+    1,
+    30
+  ],
+  "apple_price": 14.99,
+  "apple_billing_day": 5,
+  "phone_price": 30,
+  "phone_billing_day": 10,
+  "rent_weekly": 400,
+  "rent_pay_day": 23
+}
