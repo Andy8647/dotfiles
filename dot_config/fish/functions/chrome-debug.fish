@@ -13,7 +13,8 @@ function chrome-debug --description 'Launch a separate Chrome (debug profile) wi
     end
 
     # -n 开新实例;独立 profile,不影响日常 Chrome,也不需要退出它
-    open -na "Google Chrome" --args --remote-debugging-port=$port --user-data-dir="$profile"
+    # --disable-features=...: 禁止 Optimization Guide 下载端侧 Gemini Nano(白占 4G)
+    open -na "Google Chrome" --args --remote-debugging-port=$port --user-data-dir="$profile" --disable-features=OptimizationGuideModelDownloading
 
     for i in (seq 1 50)
         if curl -s --max-time 1 http://127.0.0.1:$port/json/version >/dev/null 2>&1
