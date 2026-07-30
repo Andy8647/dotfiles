@@ -4,7 +4,9 @@
   "defaultModel": "deepseek-v4-pro",
   "defaultThinkingLevel": "high",
   "enabledModels": [
-    "deepseek/*"
+    "deepseek/*",
+    "kimi-coding/*",
+    "kimi-platform/*"
   ],
   "shellPath": "/opt/homebrew/bin/fish",
   "subagents": {
