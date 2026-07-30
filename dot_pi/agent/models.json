@@ -1,44 +1,5 @@
 {
   "providers": {
-    "kimi-platform": {
-      "baseUrl": "https://api.moonshot.cn/v1",
-      "api": "openai-completions",
-      "apiKey": "$KIMIP_API_KEY",
-      "compat": {
-        "deferredToolsMode": "kimi"
-      },
-      "models": [
-        {
-          "id": "kimi-k3",
-          "name": "Kimi K3 (平台)",
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "input": ["text", "image"],
-          "reasoning": true
-        }
-      ]
-    },
-    "kimi-coding": {
-      "baseUrl": "https://api.kimi.com/coding",
-      "api": "anthropic-messages",
-      "apiKey": "$KIMI_API_KEY",
-      "models": [
-        {
-          "id": "k3",
-          "name": "Kimi K3",
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "input": ["text", "image"],
-          "reasoning": true,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        }
-      ]
-    },
     "deepseek": {
       "baseUrl": "https://api.deepseek.com",
       "api": "openai-completions",
