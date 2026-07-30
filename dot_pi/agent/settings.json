@@ -1,19 +1,17 @@
 {
   "theme": "catppuccin-mocha",
-  "defaultProvider": "kimi-coding",
-  "defaultModel": "k3-256k",
+  "defaultProvider": "deepseek",
+  "defaultModel": "deepseek-v4-pro",
   "defaultThinkingLevel": "high",
   "enabledModels": [
-    "deepseek/*",
-    "kimi-coding/*",
-    "kimi-platform/*"
+    "deepseek/*"
   ],
-  "shellPath": "{{ if eq .chezmoi.os "darwin" }}/opt/homebrew/bin/fish{{ else if eq .chezmoi.os "linux" }}/usr/bin/fish{{ else }}/usr/bin/env fish{{ end }}",
+  "shellPath": "/opt/homebrew/bin/fish",
   "subagents": {
     "artifactDir": "session"
   },
   "packages": [
-    "/Users/andy/Projects/fork/pi/pi-starline",
+    "npm:pi-starline",
     "git:github.com/Andy8647/pi-balance",
     "git:github.com/Andy8647/pi-agent-loop",
     "npm:pi-mcp-adapter",
@@ -102,7 +100,7 @@
     "highlightBash": true,
     "enabled": true
   },
-  "lastChangelogVersion": "0.82.1",
+  "lastChangelogVersion": "0.83.0",
   "terminal": {
     "showTerminalProgress": false
   },
