@@ -1,0 +1,99 @@
+{
+  "palette": {
+    "mauve": "#cba6f7",
+    "blue": "#89b4fa",
+    "sky": "#89dceb",
+    "teal": "#94e2d5",
+    "green": "#a6e3a1",
+    "yellow": "#f9e2af",
+    "peach": "#fab387",
+    "red": "#f38ba8",
+    "pink": "#f5c2e7",
+    "lavender": "#b4befe",
+    "surface2": "#585b70"
+  },
+  "footerStyle": "pill",
+  "pill": {
+    "segments": [
+      "model",
+      "thinking",
+      "cwd",
+      "runtime",
+      "gitBranch",
+      "gitStatus",
+      "extensionStatus:provider-balance",
+      "extensionStatus:mcp-status",
+      "extensionStatus:tavily-usage",
+      "tokens",
+      "cacheHit",
+      "context"
+    ],
+    "separator": "powerline",
+    "bold": true,
+    "caps": "round"
+  },
+  "footerSegments": {
+    "model": true,
+    "thinking": true,
+    "cacheHit": true
+  },
+  "colors": {
+    "model": "bg:$mauve",
+    "thinking": "bg:$peach",
+    "cwd": "bg:$blue",
+    "gitBranch": "bg:$green",
+    "gitStatus": "bg:$red",
+    "tokens": "bg:$pink",
+    "contextNormal": "bg:$surface2",
+    "contextWarning": "bg:$yellow",
+    "contextError": "bg:$red",
+    "editorAccent": "$mauve",
+    "editorPrompt": "$mauve",
+    "cacheHit": "bg:$sky",
+    "runtimePrefix": "bg:$lavender"
+  },
+  "extensionStatuses": {
+    "colors": {
+      "provider-balance": "bg:$yellow",
+      "mcp-status": "bg:$sky",
+      "tavily-usage": "bg:$teal"
+    },
+    "icons": {
+      "provider-balance": "",
+      "mcp-status": ""
+    }
+  },
+  "editorMetadataFormat": "",
+  "editorCursor": "terminal",
+  "gitHostIcon": true,
+  "segmentOptions": {
+    "context": {
+      "format": "percent"
+    },
+    "tokens": {
+      "cache": "off"
+    }
+  },
+  "fixedEditor": {
+    "enabled": true,
+    "mouseScroll": true,
+    "copyNotice": true,
+    "copyOnSelect": false
+  },
+  "pathDisplay": {
+    "mode": "full",
+    "depth": 2
+  },
+  "icons": {
+    "mode": "auto",
+    "model": "",
+    "thinking": "",
+    "cwd": "",
+    "cost": "",
+    "cacheHit": "",
+    "context": "󰆼"
+  },
+  "editorPaddingY": 0,
+  "userMessagePaddingY": 0,
+  "pasteCollapseLines": 3
+}
