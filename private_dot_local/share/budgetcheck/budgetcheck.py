@@ -57,9 +57,6 @@ DEFAULTS = {
     "laundry_price": 11,
     "laundry_weekday": "Saturday",
 
-    "claude_code_price": 30,
-    "claude_code_billing_day": 31,
-
     "openai_price": 30,
     "openai_billing_day": 5,
 
@@ -196,7 +193,6 @@ class Params(object):
         self.paid_laundry_today = False
         self.phone_paid_this_month = False
         self.apple_paid_this_month = False
-        self.claude_code_paid_this_month = False
         self.openai_paid_this_month = False
         self.openai_billing_day = None
 
@@ -330,11 +326,6 @@ def interactive_flow(cfg):
             p.apple_paid_this_month = ask_yesno(
                 "Apple(约每月 %s 号)这个月已经扣了吗?" % cfg["apple_billing_day"], default=False)
 
-    if cfg.get("claude_code_price") is not None and cfg.get("claude_code_billing_day"):
-        if month_charge_pending(cfg["claude_code_billing_day"]):
-            p.claude_code_paid_this_month = ask_yesno(
-                "Claude Code(每月 %s 号)这个月已经扣了吗?" % cfg["claude_code_billing_day"], default=False)
-
     if cfg.get("openai_price") is not None:
         cfg_day = cfg.get("openai_billing_day")
         p.openai_billing_day = ask_int(
@@ -367,7 +358,6 @@ def params_from_args(args, cfg):
     p.paid_laundry_today = args.paid_laundry_today
     p.phone_paid_this_month = args.phone_paid_this_month
     p.apple_paid_this_month = args.apple_paid_this_month
-    p.claude_code_paid_this_month = args.claude_code_paid_this_month
     p.openai_paid_this_month = args.openai_paid_this_month
     return p
 
@@ -387,7 +377,6 @@ def equivalent_command(p):
                      ("--paid-laundry-today", p.paid_laundry_today),
                      ("--phone-paid-this-month", p.phone_paid_this_month),
                      ("--apple-paid-this-month", p.apple_paid_this_month),
-                     ("--claude-code-paid-this-month", p.claude_code_paid_this_month),
                      ("--openai-paid-this-month", p.openai_paid_this_month)]:
         if on:
             parts.append(flag)
@@ -454,11 +443,6 @@ def compute_and_report(cfg, warnings, p, show_command=False):
         if laundry_wd is not None and wd == laundry_wd and not (is_start and p.paid_laundry_today):
             add("洗衣", q2(D(cfg["laundry_price"])))
 
-        if cfg.get("claude_code_price") is not None and cfg.get("claude_code_billing_day"):
-            if d.day == clamp_billing_day(cfg["claude_code_billing_day"], d.year, d.month):
-                if not (p.claude_code_paid_this_month and in_start_month):
-                    add("Claude Code", q2(D(cfg["claude_code_price"])))
-
         if cfg.get("openai_price") is not None:
             obd = p.openai_billing_day if p.openai_billing_day is not None else cfg.get("openai_billing_day")
             if obd is not None:
@@ -512,7 +496,7 @@ def compute_and_report(cfg, warnings, p, show_command=False):
         if weekend_lunch_count:
             rows.append(("午饭·%s %s" % (_WEEKDAY_CN[weekend_wd], fmt(lunch_weekend)),
                          weekend_lunch_count, q2(lunch_weekend * weekend_lunch_count)))
-    for name in ["鸡蛋", "牛奶", "健身房", "洗衣", "Claude Code", "OpenAI", "Apple", "话费", "房租"]:
+    for name in ["鸡蛋", "牛奶", "健身房", "洗衣", "OpenAI", "Apple", "话费", "房租"]:
         if name in items:
             rows.append((name, items[name][0], q2(items[name][1])))
 
@@ -569,7 +553,6 @@ def build_argparser():
     p.add_argument("--paid-laundry-today", action="store_true", help="今天(若洗衣日)已付,不计")
     p.add_argument("--phone-paid-this-month", action="store_true", help="本月话费已扣")
     p.add_argument("--apple-paid-this-month", action="store_true", help="本月 Apple 已扣")
-    p.add_argument("--claude-code-paid-this-month", action="store_true", help="本月 Claude Code 已扣")
     p.add_argument("--openai-paid-this-month", action="store_true", help="本月 OpenAI 已扣")
     p.add_argument("-i", "--interactive", action="store_true", help="强制进入交互模式")
     p.add_argument("--config", type=str, default=CONFIG_PATH, help="配置文件路径")
