@@ -10,12 +10,11 @@
   "gym_price": 16.95,
   "gym_weekday": "Friday",
   "laundry_price": 11,
-  "laundry_weekday": "Sunday",
-  "claude_price_each": 31.25,
-  "claude_billing_days": [
-    1,
-    30
-  ],
+  "laundry_weekday": "Saturday",
+  "claude_code_price": 30,
+  "claude_code_billing_day": 31,
+  "openai_price": 30,
+  "openai_billing_day": 5,
   "apple_price": 14.99,
   "apple_billing_day": 5,
   "phone_price": 30,
