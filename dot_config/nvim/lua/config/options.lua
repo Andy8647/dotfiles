@@ -7,6 +7,9 @@
 vim.opt.number = true
 vim.opt.relativenumber = false
 
+-- nvim-jupyter 等 remote plugin 用的 Python host(独立 venv,不污染全局)
+vim.g.python3_host_prog = vim.fn.expand("~/.local/share/nvim-python3/bin/python")
+
 -- -- 隐藏所有竖向分隔线：让它们的 fg = Normal 的 bg
 local function hide_separators()
   local ok, normal = pcall(vim.api.nvim_get_hl, 0, { name = "Normal", link = false })
