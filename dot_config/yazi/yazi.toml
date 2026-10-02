@@ -21,10 +21,10 @@ word = [
   { run = 'open -a "Microsoft Word" %s', desc = "Microsoft Word", orphan = true },
 ]
 csvlens = [
-  { run = 'csvlens %s1', desc = "csvlens", block = true },
+  { run = 'csvlens --color-columns %s1', desc = "csvlens", block = true },
 ]
 csvlens-tsv = [
-  { run = 'csvlens -t %s1', desc = "csvlens (tab-separated)", block = true },
+  { run = 'csvlens --color-columns -t %s1', desc = "csvlens (tab-separated)", block = true },
 ]
 
 [open]
