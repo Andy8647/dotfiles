@@ -18,13 +18,13 @@ use = "catppuccin-mocha"
 
 [opener]
 word = [
-  { run = 'open -a "Microsoft Word" "$@"', desc = "Microsoft Word", orphan = true },
+  { run = 'open -a "Microsoft Word" %s', desc = "Microsoft Word", orphan = true },
 ]
 csvlens = [
-  { run = 'csvlens "$1"', desc = "csvlens", block = true },
+  { run = 'csvlens %s1', desc = "csvlens", block = true },
 ]
 csvlens-tsv = [
-  { run = 'csvlens -t "$1"', desc = "csvlens (tab-separated)", block = true },
+  { run = 'csvlens -t %s1', desc = "csvlens (tab-separated)", block = true },
 ]
 
 [open]
