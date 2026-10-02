@@ -15,3 +15,22 @@ prepend_previewers = [
 
 [flavor]
 use = "catppuccin-mocha"
+
+[opener]
+word = [
+  { run = 'open -a "Microsoft Word" "$@"', desc = "Microsoft Word", orphan = true },
+]
+csvlens = [
+  { run = 'csvlens "$1"', desc = "csvlens", block = true },
+]
+csvlens-tsv = [
+  { run = 'csvlens -t "$1"', desc = "csvlens (tab-separated)", block = true },
+]
+
+[open]
+prepend_rules = [
+  { url = "*.csv", use = "csvlens" },
+  { url = "*.tsv", use = "csvlens-tsv" },
+  { url = "*.docx", use = "word" },
+  { url = "*.doc", use = "word" },
+]
